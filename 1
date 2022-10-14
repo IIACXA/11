@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+#include <windows.h>
+
+using namespace std;
+
+int main()
+{
+ SetConsoleOutputCP(1251);
+
+ double x, f;
+
+ cout << "Vvedite x" << endl;
+
+ cin >> x;
+
+ if (x < 0)
+ f = 0;
+ else if (x <= 1)
+ f = (pow(x, 2))/3;
+ else
+ f = x;
+ cout << "f(x)=" << f;
+ return 0;
+}
