@@ -1,25 +1,27 @@
+#include <cmath>
+#include <iomanip>
 #include <iostream>
-#include <math.h>
-#include <windows.h>
 
-using namespace std;
+double calculateFunction(double x) {
+    if (x < 0.0) {
+        return 0.0;
+    }
+    if (x <= 1.0) {
+        return (x * x) / 3.0;
+    }
+    return x;
+}
 
-int main()
-{
- SetConsoleOutputCP(1251);
+int main() {
+    double x{};
+    std::cout << "Enter x: ";
 
- double x, f;
+    if (!(std::cin >> x) || !std::isfinite(x)) {
+        std::cerr << "Error: enter a finite number.\n";
+        return 1;
+    }
 
- cout << "Vvedite x" << endl;
-
- cin >> x;
-
- if (x < 0)
- f = 0;
- else if (x <= 1)
- f = (pow(x, 2))/3;
- else
- f = x;
- cout << "f(x)=" << f;
- return 0;
+    std::cout << std::setprecision(10)
+              << "f(x) = " << calculateFunction(x) << '\n';
+    return 0;
 }
